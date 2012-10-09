@@ -12,7 +12,7 @@
 (defn clojurize [^String s]
   (keyword (string/join "-" (map string/lower-case (re-seq #"[A-Z][a-z]+|[A-Z]" s)))))
 
-(defn javaize [^Keyword k]
+(defn javaize [k]
   (apply str (map string/capitalize (string/split (name k) #"-"))))
 
 (defmacro doto-if [x & forms]
